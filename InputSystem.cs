@@ -10,6 +10,7 @@ public class InputSystem : MonoBehaviour
     public KeyCode MoveRight = KeyCode.D;
     public KeyCode Sprint = KeyCode.LeftShift;
     public KeyCode Jump = KeyCode.Space;
+    public KeyCode Fire = KeyCode.Mouse0;
    
 
 
