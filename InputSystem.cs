@@ -11,7 +11,7 @@ public class InputSystem : MonoBehaviour
     public KeyCode Sprint = KeyCode.LeftShift;
     public KeyCode Jump = KeyCode.Space;
     public KeyCode Fire = KeyCode.Mouse0;
-    public KeyCode DropItem = KeyCode.Q; 
+    public KeyCode DropItem = KeyCode.E; 
 
 
     private void Awake()
