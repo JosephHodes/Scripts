@@ -6,14 +6,9 @@ public class WallRunning : MonoBehaviour
 
     public LayerMask layer;
     [Header("wallRunning stuff")]
-    public float speed;
-    public float speedUp;
-    public float jumpForce;
-    public float jumpFowardForce;
-    public float WallGravity;
+    public float speed,speedUp,jumpForce,jumpFowardForce,WallGravity;
     public Rigidbody Rb;
-    public bool iswallrunningRight;
-    public bool iswallrunningLeft;
+    public bool iswallrunningRight, iswallrunningLeft;
     private InputSystem IS;
     private int placeholder1;
     private int placeholder2;
