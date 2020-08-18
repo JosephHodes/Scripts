@@ -4,11 +4,10 @@ using UnityEngine;
 using Photon;
 using Photon.Pun;
 using System;
-using UnityEngine.InputSystem;
 
 public class GameMangaer : MonoBehaviourPunCallbacks
 {
-    public bool isHoldingBall = false;
+/*    public bool isHoldingBall = false;
     public Transform[] SpawnPoint;
     public Transform ballholder;
     private int spawnHolder;
@@ -41,5 +40,5 @@ public class GameMangaer : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.Escape)){
             Cursor.lockState = CursorLockMode.None;
         }
-    }
+    }*/
 }

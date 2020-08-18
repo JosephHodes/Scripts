@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
 
-public class PickUpScript : MonoBehaviour
+public class PickUpScriptV1 : MonoBehaviour
 {
-    public GameObject GunNode;
+  /*  public GameObject GunNode;
     public GameObject bulletPrefab;
 
     public bool IsHoldingGun = false;
@@ -75,5 +75,5 @@ public class PickUpScript : MonoBehaviour
         gun.GetComponent<Rigidbody>().isKinematic = true;
         CurrentBall = gun;
         Mangaer.isHoldingBall = true;
-    }
+    }*/
 }

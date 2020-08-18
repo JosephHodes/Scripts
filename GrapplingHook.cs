@@ -32,8 +32,10 @@ public class GrapplingHook : MonoBehaviour
             {
                 if (IsSpringAlive)
                 {
+
+                    Destroy(springJoint); 
                     GrappleRelease();
-                    Destroy(springJoint);
+                    
                 }
             }
         }
