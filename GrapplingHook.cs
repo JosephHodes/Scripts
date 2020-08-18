@@ -42,7 +42,7 @@ public class GrapplingHook : MonoBehaviour
     {
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.up, out hit, FireDistance))
+        if (Physics.Raycast(transform.position, -transform.forward, out hit, FireDistance))
         {
             springJoint = player.gameObject.AddComponent<SpringJoint>();
             springJoint.anchor = hit.point;
