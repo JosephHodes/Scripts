@@ -6,18 +6,17 @@ public class Teleport_Back : MonoBehaviour
 {
     private IEnumerator corutine;
     public float teleportdelaybackposition;
-    private Transform player;
+    public GameObject player;
     private Transform beforeloc;
     private InputSystem IS;
-    private Vector3 pastposition;
 
 
     void Start()
     {
-        player = GetComponent<Transform>();
+        
         IS = FindObjectOfType<InputSystem>();
         corutine = teleportbackposition(teleportdelaybackposition);
-        pastposition = player.position;
+        beforeloc = player.transform;
         StartCoroutine(corutine);
 
     }
@@ -26,7 +25,7 @@ public class Teleport_Back : MonoBehaviour
     {
         while (true)
         {
-            pastposition = player.position;
+            beforeloc = player.transform;
             yield return new WaitForSeconds(teleportdelaybackposition);
         }
         
@@ -34,9 +33,10 @@ public class Teleport_Back : MonoBehaviour
     private void FixedUpdate()
     {
 
-            if (Input.GetKeyDown(IS.TeleportBack))
+        if (Input.GetKeyDown(KeyCode.RightShift)) 
             {
-                player.position = pastposition;
+            Destroy(player);
+            Instantiate(player, beforeloc);
             }
 
     }

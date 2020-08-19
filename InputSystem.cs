@@ -12,7 +12,7 @@ public class InputSystem : MonoBehaviour
     public KeyCode Jump = KeyCode.Space;
     public KeyCode Fire = KeyCode.Mouse0;
     public KeyCode DropItem = KeyCode.E;
-    public KeyCode TeleportBack = KeyCode.Mouse2;
+    public KeyCode TeleportBack = KeyCode.Mouse1;
 
 
     private void Awake()
