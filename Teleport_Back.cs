@@ -5,41 +5,39 @@ using UnityEngine;
 public class Teleport_Back : MonoBehaviour
 {
     private IEnumerator corutine;
-    private bool haspastposition;
     public float teleportdelaybackposition;
-    
+    private Transform player;
     private Transform beforeloc;
     private InputSystem IS;
+    private Vector3 pastposition;
 
 
     void Start()
     {
+        player = GetComponent<Transform>();
         IS = FindObjectOfType<InputSystem>();
         corutine = teleportbackposition(teleportdelaybackposition);
-        beforeloc.position = transform.position;
+        pastposition = player.position;
         StartCoroutine(corutine);
 
     }
 
     private IEnumerator teleportbackposition(float teleportdelaybackposition)
     {
-        beforeloc.position = transform.position;
-        haspastposition = true;
-        yield return new WaitForSeconds(teleportdelaybackposition);
+        while (true)
+        {
+            pastposition = player.position;
+            yield return new WaitForSeconds(teleportdelaybackposition);
+        }
+        
     }
     private void FixedUpdate()
     {
-        if (haspastposition)
-        {
+
             if (Input.GetKeyDown(IS.TeleportBack))
             {
-                transform.position = beforeloc.position;
+                player.position = pastposition;
             }
-        }
-        else
-        {
-            Debug.Log("wait dont have a past position");
-        }
 
     }
 }
