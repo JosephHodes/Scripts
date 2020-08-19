@@ -6,38 +6,43 @@ public class Teleport_Back : MonoBehaviour
 {
     private IEnumerator corutine;
     public float teleportdelaybackposition;
-    public GameObject player;
+    public SpawnPoint player;
     private Transform beforeloc;
     private InputSystem IS;
 
 
     void Start()
     {
-        
+        player = FindObjectOfType<SpawnPoint>();
+        beforeloc = GameObject.Find("BeforeLoc").transform;
         IS = FindObjectOfType<InputSystem>();
         corutine = teleportbackposition(teleportdelaybackposition);
-        beforeloc = player.transform;
+        beforeloc.position = player.playerClone.transform.position;
+        beforeloc.rotation = player.playerClone.transform.rotation;
         StartCoroutine(corutine);
+        InvokeRepeating("Teleportback", 0.0001f, 0.0001f);
 
     }
 
     private IEnumerator teleportbackposition(float teleportdelaybackposition)
     {
         while (true)
-        {
-            beforeloc = player.transform;
+        { 
+
+            beforeloc.position = player.playerClone.transform.position;
+            beforeloc.rotation = player.playerClone.transform.rotation;
             yield return new WaitForSeconds(teleportdelaybackposition);
         }
         
     }
-    private void FixedUpdate()
+    private void Teleportback()
     {
+        if (Input.GetKeyDown(KeyCode.RightShift))
+        {
+            Destroy(player.playerClone);
+            var playerClone = Instantiate(player.player, beforeloc.position,beforeloc.rotation);
+            player.playerClone = playerClone;
 
-        if (Input.GetKeyDown(KeyCode.RightShift)) 
-            {
-            Destroy(player);
-            Instantiate(player, beforeloc);
-            }
-
+        }
     }
 }
