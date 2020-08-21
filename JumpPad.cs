@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class JumpPad : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Rigidbody player;
+    private GameObject playerboi;
+    public int launchHeight, launchforward;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Start()
+    {
+        playerboi = FindObjectOfType<PlayerMovement>().gameObject;   
+    }
+    private void OnCollisionEnter(Collision collision)
     {
         
+        if (playerboi)
+        {
+            playerboi.GetComponent<Rigidbody>().AddForce(transform.up * launchHeight);
+            playerboi.GetComponent<Rigidbody>().AddForce(transform.forward * launchforward) ;
+           
+        }
     }
 }
