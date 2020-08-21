@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photon.Realtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,14 +12,14 @@ public class JumpPad : MonoBehaviour
 
     private void Start()
     {
-       
+        
     }
-    private void OnTriggerEnter(Collider other)        
+    private void OnCollisionEnter(Collision collision)
     {
-        playerboi = FindObjectOfType<Rigidbody>().gameObject;
-        Debug.Log(other.gameObject.layer);
-        if (other.gameObject.layer == playerboi.layer) 
-        {
+
+        Debug.Log(collision.gameObject.layer);
+        playerboi = collision.gameObject.GetComponent<PlayerMovement>().gameObject;
+        if (playerboi) { 
             playerboi.GetComponent<Rigidbody>().AddForce(transform.up * launchHeight);
             playerboi.GetComponent<Rigidbody>().AddForce(transform.forward * launchforward) ;
            
