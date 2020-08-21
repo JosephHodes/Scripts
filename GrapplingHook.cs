@@ -10,7 +10,8 @@ public class GrapplingHook : MonoBehaviour
     public GameObject player;
     public bool IsSpringAlive;
     private PickUpScript pickup;
-    
+    private Vector3 distancebetweenu;
+    private float placeholder;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class GrapplingHook : MonoBehaviour
             if (Input.GetKeyDown(IS.Fire))
             {
                 GrappleFire();
+
             }
             if (Input.GetKeyUp(IS.Fire))
             {
@@ -37,6 +39,10 @@ public class GrapplingHook : MonoBehaviour
                     GrappleRelease();
                     
                 }
+            }
+            if (IsSpringAlive)
+            {
+                springJoint.anchor = (distancebetweenu * placeholder) * .25f;
             }
         }
     }
@@ -51,6 +57,8 @@ public class GrapplingHook : MonoBehaviour
             UnityEngine.Debug.Log( hit.distance +" "+hit.point+" "+hit.collider.gameObject);
             IsSpringAlive = true;
             player.GetComponent<Rigidbody>().AddForce(transform.forward * forwardSpeed);
+            distancebetweenu = hit.point;
+            placeholder = hit.distance;
         }
     }
     private void GrappleRelease()
