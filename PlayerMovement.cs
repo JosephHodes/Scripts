@@ -7,7 +7,11 @@ public class PlayerMovement : MonoBehaviour
 {
     [HideInInspector]
     public Rigidbody RB;
+    [HideInInspector]
+    public int BoostSpeed;
     private InputSystem IS;
+ 
+    public int Speedboost;
     [Header("Movement")]
     public static float currentSpeed;
     public float runSpeed;
@@ -32,11 +36,11 @@ public class PlayerMovement : MonoBehaviour
     {
         currentSpeed = RB.velocity.magnitude;
         Debug.Log(RB.velocity.magnitude);
-        if (Input.GetKey(IS.MoveFoward) && Input.GetKey(IS.Sprint)) { RB.AddForce(transform.forward * runSpeed); }
-        else if (Input.GetKey(IS.MoveFoward)) { RB.AddForce(transform.forward * walkSpeed); }
-        if (Input.GetKey(IS.MoveBackwards)) { RB.AddForce(transform.forward * -walkSpeed); }
-        if (Input.GetKey(IS.MoveRight)) { RB.AddForce(transform.right * walkSpeed); }
-        if (Input.GetKey(IS.MoveLeft)) { RB.AddForce(transform.right * -walkSpeed); }
+        if (Input.GetKey(IS.MoveFoward) && Input.GetKey(IS.Sprint)) { RB.AddForce(transform.forward * (runSpeed + Speedboost)); }
+        else if (Input.GetKey(IS.MoveFoward)) { RB.AddForce(transform.forward * (walkSpeed + Speedboost)); }
+        if (Input.GetKey(IS.MoveBackwards)) { RB.AddForce(transform.forward * -(walkSpeed + Speedboost)); }
+        if (Input.GetKey(IS.MoveRight)) { RB.AddForce(transform.right * (walkSpeed+Speedboost)); }
+        if (Input.GetKey(IS.MoveLeft)) { RB.AddForce(transform.right * -(walkSpeed + Speedboost)); }
         if (Input.GetKey(IS.Jump) && grounded) { RB.AddForce(transform.up * JumpHeight);
         }
         if (!grounded)

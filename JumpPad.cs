@@ -20,6 +20,12 @@ public class JumpPad : MonoBehaviour
     [Header("is this a add speedpad")]
     public bool speedupPad;
     public int Speedboost;
+    [Header("is this a add jump height")]
+    public bool jumpheightpad;
+    public int jumpheight;
+    [Header("is this a decrease jump height")]
+    public bool jumpDecrease;
+    public int jumpdecreasamount;
 
     private void Start()
     {
@@ -45,7 +51,15 @@ public class JumpPad : MonoBehaviour
             }
             if (speedupPad)
             {
-                playerboi.GetComponent<PlayerMovement>
+                playerboi.GetComponent<PlayerMovement>().BoostSpeed += Speedboost;
+            }
+            if (jumpheightpad)
+            {
+                playerboi.GetComponent<PlayerMovement>().JumpHeight += jumpheight;
+            }
+            if (jumpDecrease)
+            {
+                playerboi.GetComponent<PlayerMovement>().JumpHeight -= jumpheight;
             }
         }
     }
