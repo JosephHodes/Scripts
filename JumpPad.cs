@@ -8,18 +8,18 @@ public class JumpPad : MonoBehaviour
 {
     private GameObject playerboi;
 
-    [Header("is this a jump pad")]
+    [Header("is this a launch upwards")]
     public bool jumpPad;
     public int launchHeight;
-    [Header("is this a slowdown pad")]
-    public bool ReduceSpeedPad;
-    public int slowdown;
     [Header("is this a launchPad forward")]
     public bool launchPadForward;
     public int launchforward;  
     [Header("is this a add speedpad")]
     public bool speedupPad;
     public int Speedboost;
+    [Header("is this a slowdown pad")]
+    public bool ReduceSpeedPad;
+    public int slowdown;
     [Header("is this a add jump height")]
     public bool jumpheightpad;
     public int jumpheight;
