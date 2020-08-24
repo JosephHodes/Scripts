@@ -8,15 +8,18 @@ public class JumpPad : MonoBehaviour
 {
     private GameObject playerboi;
 
-    public int launchforward;
-    public Array meme;
-
     [Header("is this a jump pad")]
     public bool jumpPad;
     public int launchHeight;
     [Header("is this a slowdown pad")]
     public bool ReduceSpeedPad;
     public int slowdown;
+    [Header("is this a launchPad forward")]
+    public bool launchPadForward;
+    public int launchforward;  
+    [Header("is this a add speedpad")]
+    public bool speedupPad;
+    public int Speedboost;
 
     private void Start()
     {
@@ -32,8 +35,18 @@ public class JumpPad : MonoBehaviour
             {
                 playerboi.GetComponent<Rigidbody>().AddForce(playerboi.transform.up * launchHeight);
             }
-
-           
+            if (ReduceSpeedPad)
+            {
+                playerboi.GetComponent<Rigidbody>().AddForce(playerboi.transform.forward * -slowdown);
+            }
+            if (launchPadForward)
+            {
+                playerboi.GetComponent<Rigidbody>().AddForce(playerboi.transform.forward * launchforward);
+            }
+            if (speedupPad)
+            {
+                playerboi.GetComponent<PlayerMovement>
+            }
         }
     }
 }
