@@ -16,7 +16,10 @@ public class JumpPad : MonoBehaviour
     public int launchforward;      
     [Header("is this a launchPad left")]
     public bool launchPadLeft;
-    public int launchleft;  
+    public int launchleft;
+    [Header("is this a launchPad right")]
+    public bool launchright;
+    public int Launchrightvalue;  
     [Header("is this a add speedpad")]
     public bool speedupPad;
     public int Speedboost;
@@ -51,6 +54,10 @@ public class JumpPad : MonoBehaviour
             if (launchPadForward)
             {
                 playerboi.GetComponent<Rigidbody>().AddForce(playerboi.transform.forward * launchforward);
+            }
+            if (launchright)
+            {
+                playerboi.GetComponent<Rigidbody>().AddForce(playerboi.transform.right * Launchrightvalue) ;
             }
             if (launchPadLeft)
             {
