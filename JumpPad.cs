@@ -57,7 +57,7 @@ public class JumpPad : MonoBehaviour
             }
             if (launchright)
             {
-                playerboi.GetComponent<Rigidbody>().AddForce(playerboi.transform.right * Launchrightvalue) ;
+                playerboi.GetComponent<Rigidbody>().AddForce(playerboi.transform.forward * Launchrightvalue) ;
             }
             if (launchPadLeft)
             {
