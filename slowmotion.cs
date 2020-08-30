@@ -22,7 +22,8 @@ public class slowmotion : MonoBehaviour
             Time.timeScale = timeslowamount;
             if (turnonslowmotionwithspeed)
             {
-
+                player.runSpeed =+ speedup;
+                player.walkSpeed =+ speedup;
             }
         }
         
