@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class slowmotion : MonoBehaviour
 {
+    [Range(0,1)]
     public float timeslowamount;
+
     public int speedup;
     public bool turnonslowmotion;
     public bool turnonslowmotionwithspeed;
@@ -14,6 +16,9 @@ public class slowmotion : MonoBehaviour
     }
     void Update()
     {
-        
+        if (turnonslowmotion)
+        {
+            Time.timeScale= timeslowamount;
+        }
     }
 }
