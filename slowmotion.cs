@@ -13,7 +13,7 @@ public class slowmotion : MonoBehaviour
     public PlayerMovement player;
     void Start()
     {
-        
+        player = GetComponent<PlayerMovement>();
     }
     void Update()
     {
