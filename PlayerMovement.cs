@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask ground;
     public float BhopSpeed;
     public bool abletodoublejump;
-
+    public float doublejumpForce;
 
     [Header("Gravity")]
     public float normalGravity;
