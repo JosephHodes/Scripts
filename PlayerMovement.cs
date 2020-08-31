@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public bool grounded;
     public LayerMask ground;
     public float BhopSpeed;
+    public bool abletodoublejump;
+
 
     [Header("Gravity")]
     public float normalGravity;
