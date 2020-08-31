@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (grounded)
+        {
+            
+        }
         currentSpeed = RB.velocity.magnitude;
         Debug.Log(RB.velocity.magnitude);
         if (Input.GetKey(IS.MoveFoward) && Input.GetKey(IS.Sprint)) { RB.AddForce(transform.forward * (runSpeed + Speedboost)); }
@@ -44,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(IS.MoveBackwards)) { RB.AddForce(transform.forward * -(walkSpeed + Speedboost)); }
         if (Input.GetKey(IS.MoveRight)) { RB.AddForce(transform.right * (walkSpeed+Speedboost)); }
         if (Input.GetKey(IS.MoveLeft)) { RB.AddForce(transform.right * -(walkSpeed + Speedboost)); }
-        if (Input.GetKey(IS.Jump) && grounded) {jumpamount++; RB.AddForce(transform.up * JumpHeight);if (abletodoublejump) { } }
+        if (Input.GetKey(IS.Jump) && grounded) {jumpamount++; RB.AddForce(transform.up * JumpHeight);if (abletodoublejump) { jumpamount++; RB.AddForce(transform.up*doublejumpForce } }
         if (!grounded)
         {
             RB.AddForce(transform.up * -gravity);
