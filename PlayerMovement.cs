@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor.Experimental.GraphView;
     using UnityEngine;
 
@@ -10,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public int BoostSpeed;
     private InputSystem IS;
- 
+    private float jumpamount;
     public int Speedboost;
     [Header("Movement")]
     public static float currentSpeed;
@@ -43,8 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(IS.MoveBackwards)) { RB.AddForce(transform.forward * -(walkSpeed + Speedboost)); }
         if (Input.GetKey(IS.MoveRight)) { RB.AddForce(transform.right * (walkSpeed+Speedboost)); }
         if (Input.GetKey(IS.MoveLeft)) { RB.AddForce(transform.right * -(walkSpeed + Speedboost)); }
-        if (Input.GetKey(IS.Jump) && grounded) { RB.AddForce(transform.up * JumpHeight);
-        }
+        if (Input.GetKey(IS.Jump) && grounded) {jumpamount++; RB.AddForce(transform.up * JumpHeight);if (abletodoublejump) { } }
         if (!grounded)
         {
             RB.AddForce(transform.up * -gravity);
