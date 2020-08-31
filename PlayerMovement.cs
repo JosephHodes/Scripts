@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (grounded)
         {
-            
+            jumpamount -= jumpamount;
         }
         currentSpeed = RB.velocity.magnitude;
         Debug.Log(RB.velocity.magnitude);
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(IS.MoveBackwards)) { RB.AddForce(transform.forward * -(walkSpeed + Speedboost)); }
         if (Input.GetKey(IS.MoveRight)) { RB.AddForce(transform.right * (walkSpeed+Speedboost)); }
         if (Input.GetKey(IS.MoveLeft)) { RB.AddForce(transform.right * -(walkSpeed + Speedboost)); }
-        if (Input.GetKey(IS.Jump) && grounded) {jumpamount++; RB.AddForce(transform.up * JumpHeight);if (abletodoublejump) { jumpamount++; RB.AddForce(transform.up*doublejumpForce } }
+        if (Input.GetKey(IS.Jump) && grounded) {jumpamount++; RB.AddForce(transform.up * JumpHeight);if (abletodoublejump) { jumpamount++; RB.AddForce(transform.up * doublejumpForce); } }
         if (!grounded)
         {
             RB.AddForce(transform.up * -gravity);
