@@ -6,6 +6,7 @@ public class DodgeBall : MonoBehaviour
     private PlayerMovement player;
     [SerializeField]
     private List<PlayerMovement> players = new List<PlayerMovement>();
+    public bool gothit;
 
     public uint multiplicationFactor;
 
@@ -36,6 +37,7 @@ public class DodgeBall : MonoBehaviour
         if (player)
         {
             Destroy(gameObject);
+            gothit= tr
         }
     }
 }
