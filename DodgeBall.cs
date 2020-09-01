@@ -35,7 +35,7 @@ public class DodgeBall : MonoBehaviour
     {
         if (player)
         {
-            Destroy()
+            Destroy(gameObject);
         }
     }
 }
