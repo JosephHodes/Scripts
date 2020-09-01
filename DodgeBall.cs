@@ -33,6 +33,9 @@ public class DodgeBall : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-     if(player)   
+        if (player)
+        {
+            Destroy()
+        }
     }
 }
