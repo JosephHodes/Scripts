@@ -29,7 +29,7 @@ public class DodgeBall : MonoBehaviour
     private void FollowBall()
     {
         GetComponent<Rigidbody>().AddForce((player.transform.position - transform.position) * multiplicationFactor); // add a force to the rigidbody towards the direction of the player with a speed
-
+        Destroy(player);
     }
   
 }
