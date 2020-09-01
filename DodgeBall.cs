@@ -37,7 +37,7 @@ public class DodgeBall : MonoBehaviour
         if (player)
         {
             Destroy(gameObject);
-            gothit= tr
+            gothit = true;
         }
     }
 }
